@@ -34,14 +34,42 @@ function pokemonslist({ pokemons, count, next, previous, page }) {
       </div>
       <div className="flex px-3 py-5">
         <Link href={`/pokemons/${parseInt(page) - 1}`}>
-          <button className="text-red-500 disabled:text-gray-400" disabled={previous === null} >
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+          <button
+            className="text-red-500 disabled:text-gray-400"
+            disabled={previous === null}
+          >
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
           </button>
         </Link>
         <div className="flex-grow"></div>
         <Link href={`/pokemons/${parseInt(page) + 1}`}>
-          <button className="text-red-500 disabled:text-gray-400" disabled={next === null}>
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+          <button
+            className="text-red-500 disabled:text-gray-400"
+            disabled={next === null}
+          >
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
           </button>
         </Link>
       </div>
@@ -63,16 +91,14 @@ export async function getStaticPaths() {
       page: index.toString(),
     },
   }));
-  console.log("paths ;", paths);
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  console.log("params 2;", params);
-
   try {
     let response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon?offset=${parseInt(params.page) * 20
+      `https://pokeapi.co/api/v2/pokemon?offset=${
+        parseInt(params.page) * 20
       }&limit=20`
     );
     let { results, count, next, previous } = await response.json();
