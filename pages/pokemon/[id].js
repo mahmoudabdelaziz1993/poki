@@ -84,17 +84,18 @@ export async function getStaticProps({ params }) {
     );
     let { name, height, weight, abilities } = await response.json();
     let templateId = ("00" + params.id).slice(-3);
-    let image = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${templateId}.png`;
+    let image = templateId > 899 ? `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${templateId}.png` : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
+
     return {
       props: {
-        name,
         height,
         weight,
         abilities,
         image,
+        name
       },
-      revalidate: 60,
-    };
+      fallback: false
+    }
   } catch (error) {
     console.error(error);
   }
