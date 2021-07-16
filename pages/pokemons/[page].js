@@ -14,23 +14,26 @@ function pokemonslist({ pokemons, count, next, previous, page }) {
         </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 px-5">
-        {pokemons.map(({ name, url, image, id }, index) => (
-          <Link href={`/pokemon/${id}`} key={index}>
-            <div className="group cursor-pointer bg-gray-700 rounded-md">
-              <h3 className="font-semibold text-xl m text-gray-100 pl-3 pt-3 capitalize">
-                {name}
-              </h3>
-              <div className=" my-1 transition-all duration-500 ease-in-out  group-hover:bg-red-500 w-10 rounded-r-md h-1 "></div>
-              <div>
-                <img
-                  className="object-contain h-60 w-full"
-                  src={image}
-                  alt={name}
-                />
-              </div>
-            </div>
-          </Link>
-        ))}
+        {pokemons.map(
+          ({ name, url, image, id }, index) =>
+            id < 899 && (
+              <Link href={`/pokemon/${id}`} key={index}>
+                <div className="group cursor-pointer bg-gray-700 rounded-md">
+                  <h3 className="font-semibold text-xl m text-gray-100 pl-3 pt-3 capitalize">
+                    {name}
+                  </h3>
+                  <div className=" my-1 transition-all duration-500 ease-in-out  group-hover:bg-red-500 w-10 rounded-r-md h-1 "></div>
+                  <div>
+                    <img
+                      className="object-contain h-60 w-full"
+                      src={image}
+                      alt={name}
+                    />
+                  </div>
+                </div>
+              </Link>
+            )
+        )}
       </div>
       <div className="flex px-3 py-5">
         <Link href={`/pokemons/${parseInt(page) - 1}`}>
@@ -57,7 +60,7 @@ function pokemonslist({ pokemons, count, next, previous, page }) {
             {parseInt(page) + 1}
           </span>
           <span className="text-sm font-medium capitalize text-gray-600">
-            of {Math.round(parseInt(count) / 20)}
+            of {Math.round(parseInt(898) / 20)}
           </span>
         </div>
         <Link href={`/pokemons/${parseInt(page) + 1}`}>
@@ -87,11 +90,11 @@ function pokemonslist({ pokemons, count, next, previous, page }) {
 export default pokemonslist;
 
 export async function getStaticPaths() {
-  let response = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
-  );
-  let { count } = await response.json();
-  let dummy = new Array(Math.round(parseInt(count) / 20)).fill(0);
+  // let response = await fetch(
+  //   "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
+  // );
+  // let { count } = await response.json();
+  let dummy = new Array(Math.round(parseInt(898) / 20)).fill(0);
 
   const paths = dummy.map((item, index) => ({
     params: {

@@ -61,11 +61,11 @@ function pokemon({ name, height, weight, abilities, image }) {
 export default pokemon;
 
 export async function getStaticPaths() {
-  let response = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
-  );
-  let { count } = await response.json();
-  let dummy = new Array(count).fill(0);
+  // let response = await fetch(
+  //   "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
+  // );
+  // let { count } = await response.json();
+  let dummy = new Array(898).fill(0);
 
   const paths = dummy.map((item, index) => ({
     params: {
@@ -77,14 +77,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-
   try {
     let response = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${params.id}`
     );
     let { name, height, weight, abilities } = await response.json();
-    let templateId = ("00" + params.id).slice(-3);
-    let image = templateId < 899 ? `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${templateId}.png` : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
+    let templateId = params.id < 100 ? ("00" + params.id).slice(-3) : params.id;
+    let image =
+      templateId < 899
+        ? `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${templateId}.png`
+        : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png";
 
     return {
       props: {
@@ -92,9 +94,9 @@ export async function getStaticProps({ params }) {
         weight,
         abilities,
         image,
-        name
-      }
-    }
+        name,
+      },
+    };
   } catch (error) {
     console.error(error);
   }
