@@ -72,12 +72,12 @@ export async function getStaticPaths() {
       id: (index + 1).toString(),
     },
   }));
-  console.log("paths ;", paths);
+
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  console.log("params ;", params);
+
   try {
     let response = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${params.id}`

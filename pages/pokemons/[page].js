@@ -52,7 +52,14 @@ function pokemonslist({ pokemons, count, next, previous, page }) {
             </svg>
           </button>
         </Link>
-        <div className="flex-grow"></div>
+        <div className="flex-grow flex justify-center items-center">
+          <span className="text-4xl font-extrabold italic px-3">
+            {parseInt(page) + 1}
+          </span>
+          <span className="text-sm font-medium capitalize text-gray-600">
+            of {Math.round(parseInt(count) / 20)}
+          </span>
+        </div>
         <Link href={`/pokemons/${parseInt(page) + 1}`}>
           <button
             className="text-red-500 disabled:text-gray-400"
@@ -84,7 +91,7 @@ export async function getStaticPaths() {
     "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
   );
   let { count } = await response.json();
-  let dummy = new Array(count).fill(0);
+  let dummy = new Array(Math.round(parseInt(count) / 20)).fill(0);
 
   const paths = dummy.map((item, index) => ({
     params: {
