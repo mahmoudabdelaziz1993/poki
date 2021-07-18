@@ -10,7 +10,9 @@
     "mongoose": "^5.13.3",
     "next": "latest",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.11.1",
+    "swr": "^0.5.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

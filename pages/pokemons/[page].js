@@ -19,7 +19,7 @@ function pokemonslist({ pokemons, count, next, previous, page }) {
             id < 899 && (
               <Link href={`/pokemon/${id}`} key={index}>
                 <div className="group cursor-pointer bg-black rounded-md">
-                  <h3 className="font-semibold text-xl m text-gray-100 pl-3 pt-3 capitalize">
+                  <h3 className="font-semibold text-xl m text-gray-100 pl-3 pt-3 capitalize truncate">
                     {name}
                   </h3>
                   <div className=" my-1 transition-all duration-500 ease-in-out  group-hover:bg-red-500 w-10 rounded-r-md h-1 "></div>
