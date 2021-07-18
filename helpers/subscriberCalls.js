@@ -15,7 +15,7 @@ const postFetcher = (url, payload) =>
 
 export const fetchSubscribers = () => {
   const { data, error } = useSWR(
-    `${process.env.BASE_URL}/api/subscriber`,
+    `${process.env.BASE_URL}` + "/api/subscriber",
     fetcher
     // ,
     // { refreshInterval: 3000 }
@@ -25,14 +25,14 @@ export const fetchSubscribers = () => {
 
 export const subscribeNew = async (payload) => {
   try {
-    let data = await fetcher(`${process.env.BASE_URL}/api/subscriber`, {
+    let data = await fetcher(`${process.env.BASE_URL}` + "/api/subscriber", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload), // body data type must match "Content-Type" header
     });
-    mutate(`${process.env.BASE_URL}/api/subscriber`);
+    mutate(`${process.env.BASE_URL}` + "/api/subscriber");
     console.log(data);
   } catch (error) {
     console.error(error);
