@@ -50,7 +50,7 @@ function Navbar() {
             </span>
           </Link>
         </div>
-        <div className="mx-3 flex items-center">
+        {/* <div className="mx-3 flex items-center">
           <Link href="/subscribe">
             <span
               className={
@@ -62,7 +62,7 @@ function Navbar() {
               subscribe
             </span>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

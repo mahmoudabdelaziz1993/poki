@@ -7,7 +7,7 @@ const SubscriberApi = async (req, res) => {
     case "GET":
       try {
         let subscribers = await Subsciber.find();
-        res.status(200).json({ success: true, data: subscribers });
+        res.status(200).json({ success: true, list: subscribers });
       } catch (error) {
         console.log(`error :`, error);
         res.status(400).send("Bad  :(");

@@ -10,8 +10,14 @@ var SubscriberSchema = new mongoose.Schema({
   },
   SubscriberName: {
     type: String,
+    unique: true,
   },
   Email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  avatar: {
     type: String,
   },
 });
