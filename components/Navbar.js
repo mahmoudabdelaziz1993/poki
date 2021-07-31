@@ -50,19 +50,6 @@ function Navbar() {
             </span>
           </Link>
         </div>
-        {/* <div className="mx-3 flex items-center">
-          <Link href="/subscribe">
-            <span
-              className={
-                isActive("/subscribe")
-                  ? "capitalize cursor-pointer   font-bold  text-2xl  hover:font-semibold hover:scale-50 "
-                  : "capitalize cursor-pointer  font-semibold text-lg   hover:font-bold hover:text-2xl "
-              }
-            >
-              subscribe
-            </span>
-          </Link>
-        </div> */}
       </div>
     </div>
   );
