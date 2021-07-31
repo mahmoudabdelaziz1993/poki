@@ -12,20 +12,23 @@ class MyDocument extends Document {
         <Head>
           {/* <!-- Primary Meta Tags --> */}
           <meta name="title" content="Poki" />
+          {/* <!-- Primary Meta Tags --> */}
+          <meta name="title" content="Poki" />
           <meta
             name="description"
-            content="All the Pokémon data you'll ever need in one place, easily accessible through a modern UI 
-
-"
+            content="All the Pokémon data you'll ever need in one place, easily accessible through a modern UI  "
           />
 
           {/* <!-- Open Graph / Facebook --> */}
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://metatags.io/" />
+          <meta
+            property="og:url"
+            content="https://ipoki-fsmq63wxi-mahmoudabdelaziz1993.vercel.app/"
+          />
           <meta property="og:title" content="Poki" />
           <meta
             property="og:description"
-            content="All the Pokémon data you'll ever need in one place, easily accessible through a modern UI "
+            content="All the Pokémon data you'll ever need in one place, easily accessible through a modern UI"
           />
           <meta
             property="og:image"
@@ -34,17 +37,19 @@ class MyDocument extends Document {
 
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://metatags.io/" />
+          <meta
+            property="twitter:url"
+            content="https://ipoki-fsmq63wxi-mahmoudabdelaziz1993.vercel.app//"
+          />
           <meta property="twitter:title" content="Poki" />
           <meta
             property="twitter:description"
-            content="All the Pokémon data you'll ever need in one place, easily accessible through a modern UI "
+            content="All the Pokémon data you'll ever need in one place, easily accessible through a modern UI  "
           />
           <meta
             property="twitter:image"
             content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
           />
-
           {/* font  */}
 
           <link rel="preconnect" href="https://fonts.googleapis.com" />
