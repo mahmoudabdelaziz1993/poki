@@ -1,7 +1,27 @@
 import Link from "next/link";
+import { useEffect } from "react";
 import Layout from "../../components/Layout";
 
-function pokemonslist({ pokemons, count, next, previous, page }) {
+function Pokemonslist({ pokemons, count, next, previous, page }) {
+
+  useEffect(() => {
+    Notification
+    .requestPermission()
+    .then(premission =>{ console.log("premission :" ,premission)
+    if (premission !== "granted") {
+      alert("You should allow Notifications for this site ")
+    }
+new Notification("Hi there !",{
+  body : "Hope you enjoy our list of Pokémons ",
+  icon :"/images/logo.png",
+  vibrate: [200, 100, 200]
+
+})
+}
+    )
+  }, [])
+  
+
   return (
     <Layout>
       <div className="mx-5 py-1 rounded-lg w-max mb-5">
@@ -87,7 +107,7 @@ function pokemonslist({ pokemons, count, next, previous, page }) {
   );
 }
 
-export default pokemonslist;
+export default Pokemonslist;
 
 export async function getStaticPaths() {
   // let response = await fetch(
