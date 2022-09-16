@@ -1,6 +1,8 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "I Pokémon list",
+  "short_name": "Ipoki",
+  "start_url": "https://ipoki.vercel.app/",
+
   "icons": [
     {
       "src": "manifest-icon-192.maskable.png",

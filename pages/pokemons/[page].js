@@ -1,51 +1,31 @@
 import Link from "next/link";
-import { useEffect } from "react";
 import Layout from "../../components/Layout";
 
 function Pokemonslist({ pokemons, count, next, previous, page }) {
-
-  useEffect(() => {
-    Notification
-    .requestPermission()
-    .then(premission =>{ console.log("premission :" ,premission)
-    if (premission !== "granted") {
-      alert("You should allow Notifications for this site ")
-    }
-new Notification("Hi there !",{
-  body : "Hope you enjoy our list of Pokémons ",
-  icon :"/images/logo.png",
-  vibrate: [200, 100, 200]
-
-})
-}
-    )
-  }, [])
-  
-
   return (
     <Layout>
-      <div className="mx-5 py-1 rounded-lg w-max mb-5">
-        <h1 className="text-xl capitalize italic text-gray-800 font-bold ">
+      <div className="py-1 mx-5 mb-5 rounded-lg w-max">
+        <h1 className="text-xl italic font-bold text-gray-800 capitalize ">
           Pokemons list
         </h1>
-        <p className="font-medium text-gray-400 italic capitalize">
+        <p className="italic font-medium text-gray-400 capitalize">
           <span className="text-xs font-semibold">+ 1000</span>
           {""} known pokemons
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 px-5">
+      <div className="grid grid-cols-2 gap-5 px-5 md:grid-cols-4">
         {pokemons.map(
           ({ name, url, image, id }, index) =>
             id < 899 && (
               <Link href={`/pokemon/${id}`} key={index}>
-                <div className="group cursor-pointer bg-black rounded-md">
-                  <h3 className="font-semibold text-xl m text-gray-100 pl-3 pt-3 capitalize truncate">
+                <div className="bg-black rounded-md cursor-pointer group">
+                  <h3 className="pt-3 pl-3 text-xl font-semibold text-gray-100 capitalize truncate m">
                     {name}
                   </h3>
-                  <div className=" my-1 transition-all duration-500 ease-in-out  group-hover:bg-red-500 w-10 rounded-r-md h-1 "></div>
+                  <div className="w-10 h-1 my-1 transition-all duration-500 ease-in-out  group-hover:bg-red-500 rounded-r-md"></div>
                   <div>
                     <img
-                      className="object-contain h-60 w-full"
+                      className="object-contain w-full h-60"
                       src={image}
                       alt={name}
                     />
@@ -75,11 +55,11 @@ new Notification("Hi there !",{
             </svg>
           </button>
         </Link>
-        <div className="flex-grow flex justify-center items-center">
-          <span className="text-4xl font-extrabold italic px-3">
+        <div className="flex items-center justify-center flex-grow">
+          <span className="px-3 text-4xl italic font-extrabold">
             {parseInt(page) + 1}
           </span>
-          <span className="text-sm font-medium capitalize text-gray-600">
+          <span className="text-sm font-medium text-gray-600 capitalize">
             of {Math.round(parseInt(898) / 20)}
           </span>
         </div>
